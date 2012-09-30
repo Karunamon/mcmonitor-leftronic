@@ -1,8 +1,7 @@
 mcmonitor-leftronic
 ===================
 
-Bash frontend to PHP-Minecraft-Query by xPaw
-Cron-based bash script for pushing data from a Minecraft server to Leftronic dashboards: http://leftronic.com
+A bash frontend to xPaw's PHP-Minecraft-Query.. push data from a Minecraft server to Leftronic web dashboards (http://leftronic.com)
 
 
 Requirements
@@ -10,7 +9,7 @@ Requirements
 * PHP CLI (any recent-ish version)
 * curl
 * Query enabled on your Minecraft server
-
+* A Leftronic account (free for single dashboards with custom data) and your API key
 
 Basic Usage
 ===========
@@ -25,4 +24,4 @@ Basic Usage
 
 Thanks
 ======
-> xPaw for his PHP Minecraft Query script, in which all the heavy lifting is done. (https://github.com/xPaw, http://xpaw.ru)
+- **xPaw** for his PHP Minecraft Query script, in which all the heavy lifting is done. (https://github.com/xPaw, http://xpaw.ru)
