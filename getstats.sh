@@ -10,7 +10,7 @@ server=""
 
 ###############################################
 
-#Really dumb method of setting our CWD
+#Really dumb method of setting our CWD - assume the PHP scripts are in the same folder as the .sh
 cd "$(dirname "$0")"
 
 #Post to a "point" endpoint (only takes one argument).
@@ -18,7 +18,7 @@ function postpoint {
 curl -s -X POST -k -d '{"accessKey": "'$apikey'", "streamName": "'$1'", "point": "'$2'"}' https://www.leftronic.com/customSend/
 }
 
-#Post to a "label" endpoint (using eval shenanigans to 
+#Post to a "label" endpoint (using eval shenanigans to nest vars)
 function postlabel {
 postvar=`echo -n $ ; echo -n $2`
 postdata=`eval echo $postvar`
@@ -28,6 +28,7 @@ curl -s -X POST -k -d '{"accessKey": "'$apikey'", "streamName": "'$1'", "point":
 
 
 #Get players online via PHP query and post the result
+#TODO: This is a horribly, terribly messy way to parse the script..
 playersonline=`php query.php | grep Players | head -n1 | sed 's/.*>//g' | sed 's/ //g'`
 echo Players online: $playersonline
 echo Posting to current count
@@ -68,6 +69,8 @@ echo Free memory: $freemem
 diskused=`ssh root@mc.shenanigancraft.tk df -m | awk 'NR==2' | awk {'print $3'}`
 echo Disk used: $diskused
 echo Posting system statistics..
+
+#Post collected data
 #This is not a typo! Pass the variable name into postlabel, not the actual $variable
 postlabel LoadAvg loadavg
 echo
