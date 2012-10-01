@@ -6,20 +6,20 @@ A bash frontend to xPaw's PHP-Minecraft-Query.. push data from a Minecraft serve
 
 Requirements
 ============
+* Minecraft, any version since release 1.2 with query enabled
 * PHP CLI (any recent-ish version)
 * curl
-* Query enabled on your Minecraft server
 * A Leftronic account (free for single dashboards with custom data) and your API key
+* SSH keys set up between your monitoring server and your Minecraft server
 
 Basic Usage
 ===========
 
 1. Clone this repo to a location of your choice, preferrably on a server remote to your Minecraft box.
-2. Edit getstats.sh, plug in your server address and your Leftronic API key.
+2. Edit getstats.sh, plug in your server address, API key, the names of your Leftronic widget streams, and the SSH account to use.
 3. Edit query.php, plug in your server address and query port.
-4. Also in getstats.sh, change the various curl commands to point to the name of your Leftronic widget stream names
-5. Run getstats.sh to test - your dashboard should be populated.
-6. Put getstats.sh on a repeating cron job for continuous updates
+4. Run getstats.sh to test - your dashboard should be populated.
+5. Put getstats.sh on a repeating cron job for continuous updates
 
 
 Thanks
