@@ -65,7 +65,7 @@ loadavg=`echo $upstring | pcregrep -o '(?<=load average: ).*'`
 echo System Load Average: $loadavg
 memstring=`ssh root@mc.shenanigancraft.tk free -m`
 memused=`echo $memstring | pcregrep -o '(?<=cache: )\d*'` 
-echo Free memory: $freemem
+echo Memory used: $memused
 diskused=`ssh root@mc.shenanigancraft.tk df -m | awk 'NR==2' | awk {'print $3'}`
 echo Disk used: $diskused
 echo Posting system statistics..
